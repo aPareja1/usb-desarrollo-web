@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alejandro Pareja</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+   
+    <nav >
+        <div class="navbar">
+            <div class="logo"><img width="50px" alt="logo universidad"
+                src="https://media.licdn.com/dms/image/C4E0BAQFk5WCyWzyFag/company-logo_200_200/0/1630594192094?e=2147483647&v=beta&t=r-P7fOGl8fu_GIyAhcb5c9UPW7VAj2gfV57RUlrH-vg">
+        </div>
+        <!-- Botones en tamano normal -->
+        <div class="buttons hidden sm:flex">
+            <a class="btn btn-secondary">
+                Mentorship
+            </a>
+            <a class="btn btn-primary">
+                Say hello
+            </a>
+        </div>
+        <!-- Botones en vista móvil -->
+        <div class="buttons flex sm:hidden">
+            <button id="menu-btn" class="btn btn-secondary">
+                <img src="static/menu.png" width="30px">
+            </button>
+        </div>
+        </div>
+        <div id="mobile-menu" class="flex flex-col items-center slide-in-animation bg-slate-400 sm:hidden ">
+            <a class=" p-2 "> Mentorship </a>
+            <a class="p-2 "> Contact me </a>
+        </div>
+        
+    </nav>
+    <header>
+        <section class="slide-in-animation flex flex-col items-center">
+            <h1 class="font-bold text-2xl slide-in-animation">Designer, Frontend Developer & Mentor</h1>
+            <p>Designer, Frontend Developer & Mentor</p>
+            <img alt="foto" class="hero-photo mt-4" src="static/mf-avatar.svg">
+        </section>
+        <section class="slide-in-animation hero-img">
+            <img alt="devices" class="hero-devices" src="static/hero-devices.svg">
+        </section>
+    </header>
+    <section class="slide-in-animation medium-section">
+        <h2 class="font-medium">Hi i'm Alejandro nice to meet you</h2>
+        <p class="text-sm w-full md:w-3/4 text-center">Since beginning my journey as a freelance designer 12 years ago, I've done remote work for
+            agencies, consulted for startups, and collaborated with talented people to create digital products for both
+            business and consumer use. I'm quietly confident, naturally curious, and perpetually working on improving my
+            chops.</p>
+    </section>
+    <section class="skills-section">
+        <div class="flex flex-col md:flex-row items-center justify-center">
+            <article class="skill">
+                <img src="static/icon.jpg">
+                <h3 class="text-base md:text-2xl">Skill 1</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit aliquid qui </p>
+            </article>
+            <article class="skill flex md:hidden">
+                <img src="static/icon.jpg">
+                <h3 class="">Skill 1</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit aliquid qui </p>
+            </article>
+            <article class="skill">
+                <img src="static/icon.jpg">
+                <h3>Skill 1</h3>
+                <div>
+                    <p>Parrafo de prueba</p>
+                </div>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit aliquid qui </p>
+            </article>
+
+        </div>
+    </section>
+</body>
+<script src="main.js"></script>
+</html>
