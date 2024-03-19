@@ -1,11 +1,14 @@
 # Introducción a express y MVC
 **Creación de un nuevo proyecto node js**
 npm init -y 
+
 **Instalaciones necesarias:**
 npm i express
 npm i body-parser
+
 Al descargar este proyecto unicamente deben correr 
 npm i
+
 **Ejecutar proyecto**
 npm run start
 
