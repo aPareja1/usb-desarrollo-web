@@ -2,12 +2,11 @@ import express from 'express';
 import { songsRouter } from './routes/songs.js'
 import { createRequire } from 'node:module'
 import bodyParser from 'body-parser';
+import { songSchema } from './validators/song.schema.js';
 
 const require = createRequire(import.meta.url)
 
 export const readJSON = (path) => require(path);
-
-
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -39,12 +38,24 @@ app.get('/song/:id', (req, res)=>{
 
 app.post('/song', (req, res)=> {
     const songToAdd = req.body;
+    const validation = songSchema.validate(songToAdd);
+    if(validation.error){
+        return res.status(400).json(validation.error);
+    }
+    console.log(validation);
     songToAdd['id'] = new Date().getTime();
     songs.push(songToAdd);
     return res.status(201).json(songToAdd);
 })
 //app.use('/song', songsRouter);
 
+app.put('/song', (req,res)=>{
+
+})
+
+app.delete('/song/:id', (req,res)=>{
+
+})
 app.listen(PORT, () => {
     console.log(`server listenin on port http://localhost:${PORT}`)
 })
