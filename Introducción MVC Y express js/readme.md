@@ -3,7 +3,7 @@
 npm init -y 
 
 **Instalaciones necesarias:**
-npm i express
+npm i express,
 npm i body-parser
 
 Al descargar este proyecto unicamente deben correr 
