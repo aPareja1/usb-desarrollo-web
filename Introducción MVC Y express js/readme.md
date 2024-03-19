@@ -14,4 +14,4 @@ npm run start
 
 - Leer sobre validaciones con JOI e implementar una validación para el método post y el put
 [joi.dev - 17.12.2 API Reference](https://joi.dev/api/?v=17.12.2#example)
-- Implementar actualización y eliminado (put, delete) con validaciones
+- Implementar actualización y eliminado (put, delete)
