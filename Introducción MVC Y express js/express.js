@@ -1,61 +1,59 @@
-import express from 'express';
-import { songsRouter } from './routes/songs.js'
-import { createRequire } from 'node:module'
+import express from "express";
+import { createRequire } from "node:module";
 import bodyParser from 'body-parser';
-import { songSchema } from './validators/song.schema.js';
+import { songCreationSchema } from "./schemas/song.schema.js";
 
-const require = createRequire(import.meta.url)
+const require = createRequire(import.meta.url);
+const readJSON = (path) => require(path);
 
-export const readJSON = (path) => require(path);
 const app = express();
-
+const PORT = 3000;
+//Use body parser
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-const PORT = process.env.PORT ?? 3000;
 
 const songs = readJSON('./songs.json');
 
 app.get('/', (req, res) => {
-    res.status(200).send('<h1> Página de ejemplo </h1>')
-})
+    res.status(200).send('<h1>Hola mundo</h1>')
+});
 
 app.get('/song', (req, res) => {
     const { genre } = req.query;
     if (genre) {
-        return res.json(songs.filter(
-            song => song.genre.some(x => x.toLowerCase() === genre.toLowerCase())
-        ))
+        const songsFiltered = songs.filter(song =>
+            song.genre.some(
+                x => x.toLowerCase() === genre.toLowerCase()
+            )
+        )
+        return res.json(songsFiltered);
     }
     return res.json(songs);
-
 });
 
-app.get('/song/:id', (req, res)=>{
-    const {id} = req.params;
-    const songById = songs.filter((song)=> song.id === id);
-    return res.json(songById);
-});
-
-app.post('/song', (req, res)=> {
-    const songToAdd = req.body;
-    const validation = songSchema.validate(songToAdd);
-    if(validation.error){
-        return res.status(400).json(validation.error);
+app.get('/song/:id', (req, res) => {
+    const { id } = req.params;
+    const filteredSong = songs.filter(song => song.id === id);
+    if(filteredSong && filteredSong.length > 0){
+        return res.json(filteredSong[0]);
     }
-    console.log(validation);
-    songToAdd['id'] = new Date().getTime();
+    return res.status(404).json({message: 'Song doesnt exists'});
+});
+
+app.post('/song', (req, res)=>{
+    const body = req.body;
+    const data = songCreationSchema.validate(body);
+    if(data.error){
+        return res.status(400).json(data.error.details[0].message);
+    }
+    const songToAdd = {
+        ...data.value,
+        id: new Date().getTime().toString()
+    };
     songs.push(songToAdd);
-    return res.status(201).json(songToAdd);
-})
-//app.use('/song', songsRouter);
-
-app.put('/song', (req,res)=>{
-
+    return res.json(songToAdd);
 })
 
-app.delete('/song/:id', (req,res)=>{
-
-})
 app.listen(PORT, () => {
-    console.log(`server listenin on port http://localhost:${PORT}`)
+    console.log(`server running on port ${PORT}`);
 })

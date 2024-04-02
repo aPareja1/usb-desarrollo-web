@@ -1,20 +1,19 @@
 import Joi from "joi";
 
-export const songSchema = Joi.object({
+export const songCreationSchema = Joi.object({
     title: Joi.string()
-        .alphanum()
         .min(3)
         .max(30)
         .required(),
     artist: Joi.string()
-        .alphanum()
         .min(3)
         .max(30)
         .required(),
     album: Joi.string()
-        .alphanum()
         .min(3)
         .max(30)
         .required(),
-    year: Joi.number().required()
-});
+    year: Joi.number().min(1600).max(new Date().getFullYear()),
+    genre: Joi.array().items(Joi.string()),
+    duration: Joi.string()
+})
