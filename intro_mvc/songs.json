@@ -1,0 +1,74 @@
+[
+  {
+    "id": "4c27ad2b-b100-45b8-8c54-1ee1538cd1f4",
+    "title": "Bohemian Rhapsody",
+    "artist": "Queen",
+    "album": "A Night at the Opera",
+    "year": 1975,
+    "genre": ["Rock", "Ópera Rock"],
+    "duration": "6:07"
+  },
+  {
+    "id": "ca15f0da-4abd-4e32-a93d-604eeb54d3ce",
+    "title": "Hotel California",
+    "artist": "Eagles",
+    "album": "Hotel California",
+    "year": 1976,
+    "genre": ["Rock"],
+    "duration": "6:30"
+  },
+  {
+    "id": "2e99bbc8-8b97-4483-85dd-3b9b3b6967d1",
+    "title": "Stairway to Heaven",
+    "artist": "Led Zeppelin",
+    "album": "Led Zeppelin IV",
+    "year": 1971,
+    "genre": ["Rock"],
+    "duration": "8:02"
+  },
+  {
+    "id": "9974d5a2-f1f9-4c18-af3f-998b5478caa0",
+    "title": "Imagine",
+    "artist": "John Lennon",
+    "album": "Imagine",
+    "year": 1971,
+    "genre": ["Pop", "Rock"],
+    "duration": "3:03"
+  },
+  {
+    "id": "72be5dc4-6f66-4a9e-a427-cacdfd23c26c",
+    "title": "Billie Jean",
+    "artist": "Michael Jackson",
+    "album": "Thriller",
+    "year": 1982,
+    "genre": ["Pop", "Funk"],
+    "duration": "4:54"
+  },
+  {
+    "id": "9231e9e2-0970-4cff-8efc-c8b72181fdfb",
+    "title": "Smells Like Teen Spirit",
+    "artist": "Nirvana",
+    "album": "Nevermind",
+    "year": 1991,
+    "genre": ["Grunge", "Rock alternativo"],
+    "duration": "5:01"
+  },
+  {
+    "id": "441aeef5-24d5-46a3-97c9-c2ef132c4a97",
+    "title": "Hey Jude",
+    "artist": "The Beatles",
+    "album": "Hey Jude",
+    "year": 1968,
+    "genre": ["Rock", "Pop"],
+    "duration": "7:11"
+  },
+  {
+    "id": "2b367ebc-c31a-4c08-a2fe-dc76c3901747",
+    "title": "Thriller",
+    "artist": "Michael Jackson",
+    "album": "Thriller",
+    "year": 1982,
+    "genre": ["Pop", "Funk"],
+    "duration": "5:57"
+  }
+]
