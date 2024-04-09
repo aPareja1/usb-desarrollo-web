@@ -9,5 +9,28 @@ Router.get(
     songController.getByTitle
   );
 
+  Router.get(
+    "/song/:id",
+    songController.getById
+  );
 
+  Router.get(
+    "/songs",
+    songController.getAll
+  );
+
+  Router.post(
+    "/song",
+    songController.save
+  );
+
+  Router.put(
+    "/song",
+    songController.update
+  )
+
+  Router.delete(
+    "/song/:id",
+    songController.delete
+  )
   export { Router as songRouter };

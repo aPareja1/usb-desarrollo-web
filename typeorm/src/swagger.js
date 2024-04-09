@@ -18,10 +18,71 @@ const options =
           name: "Apl",
         },
       },
-      "paths": {
+      paths: {
         "/song": {
           "get": {
             "summary": "Retrieve a song by its title",
+            "tags": ["Song"],
+            "parameters": [
+              {
+                "in": "query",
+                "name": "title",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                },
+                "description": "The title of the song to retrieve"
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "A song object",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "object",
+                      "properties": {
+                        "song": {
+                          "type": "object",
+                          "properties": {
+                            "title": {
+                              "type": "string"
+                            },
+                            "artist": {
+                              "type": "string"
+                            },
+                            "album": {
+                              "type": "string"
+                            },
+                            "year": {
+                              "type": "integer"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "400": {
+                "description": "Error message if the song could not be retrieved",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "object",
+                      "properties": {
+                        "error": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "post": {
+            "summary": "Create a song",
             "tags": ["Song"],
             "parameters": [
               {

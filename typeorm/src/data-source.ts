@@ -9,9 +9,7 @@ dotenv.config();
 
 const { DB_HOST, DB_PORT, DB_USERNAME, DB_PASSWORD, DB_DATABASE, NODE_ENV } =
   process.env;
-console.log(DB_PASSWORD);
-console.log(DB_HOST);
-console.log(DB_USERNAME);
+  
 export const AppDataSource = new DataSource({
   type: "postgres",
   host: DB_HOST,
