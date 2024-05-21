@@ -10,3 +10,9 @@
     justify-content: space-between;
 }
 
+.flex-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+

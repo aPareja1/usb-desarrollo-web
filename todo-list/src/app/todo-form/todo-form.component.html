@@ -1,8 +1,31 @@
-<h1>Todo list</h1>
-<form>
-  <input type="text" name="todo" [(ngModel)]="todo" required>
-  <button type="button" (click)="addTask()" [disabled]="!todo" >Add Task</button>
-</form>
+
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title><h1>Todo list</h1></mat-card-title>
+    <mat-card-subtitle>Manage your tasks</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <form class="flex-form" [formGroup]="formTodo">
+      <mat-form-field>
+        <mat-label>Add todo</mat-label>
+        <input matInput name="todo" formControlName="todo">
+        <mat-error *ngIf="formTodo.get('todo')?.hasError('required') && formTodo.get('todo')?.touched">
+          Please enter a task
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput name="email" formControlName="ownerMail">
+        <mat-error *ngIf="formTodo.get('ownerMail')?.hasError('email') && formTodo.get('ownerMail')?.touched">
+          Please enter a valid email address
+        </mat-error>
+      </mat-form-field>
+      
+        <button  mat-flat-button color="primary" type="button" (click)="addTask()" [disabled]="!formTodo.valid" >Add Task</button>
+    </form>
+  </mat-card-content>
+ 
+</mat-card>
 
 
 <div>
@@ -22,17 +45,3 @@
   </div>
   
 </div>
-
-<mat-card class="example-card">
-  <mat-card-header>
-    <mat-card-title><h1>Todo list</h1></mat-card-title>
-    <mat-card-subtitle>Manage your tasks</mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
-   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim distinctio, nesciunt adipisci aperiam ipsa nostrum quam minus? Expedita debitis, officia natus fugit soluta dicta eligendi aliquid at. Sit, suscipit praesentium!</p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-button>LIKE</button>
-    <button mat-button>SHARE</button>
-  </mat-card-actions>
-</mat-card>
