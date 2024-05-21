@@ -1,0 +1,24 @@
+<h1>Todo Clone list</h1>
+<form>
+  <input type="text" name="todo" [(ngModel)]="todo" required>
+  <button type="button" (click)="addTask()" [disabled]="!todo" >Add Task</button>
+</form>
+
+
+<div>
+  <h2>Tasks list</h2>
+  <div class="card-item"  *ngFor="let task of todoList">
+    <div>
+      <h3>{{task.name}}</h3>
+      <p>Completed: {{task.completed}}</p>
+      <p>Created at: {{task.createdAt |  date:'medium' }}</p>
+      <p *ngIf="task.completedAt">Completed at: {{task.completedAt |  date:'medium' }}</p>
+    </div>
+    <div>
+      <button *ngIf="!task.completedAt" (click)="completeTask(task.id)" >Complete</button>
+      <button (click)="deleteTask(task.id)" >Delete</button>
+    </div>
+    
+  </div>
+  
+</div>
